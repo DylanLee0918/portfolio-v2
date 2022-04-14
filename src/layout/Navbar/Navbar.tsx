@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
+import { NavList } from '../../constants/NavItems';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -153,21 +154,11 @@ const Navbar = () => {
                 </NavbarBrand>
                 <Bars onClick={showNavigation} changeBG={navbar}/>
                 <NavMenu showNav={showNav}>
-                    <NavLink to="/home" changeBG={navbar}>
-                        Home
-                    </NavLink>
-                    <NavLink to="/home" changeBG={navbar}>
-                        About Me
-                    </NavLink>
-                    <NavLink to="/home" changeBG={navbar}>
-                        Technology Skills
-                    </NavLink>
-                    <NavLink to="/home" changeBG={navbar}>
-                        Works
-                    </NavLink>
-                    <NavLink to="/home" changeBG={navbar}>
-                        Contact
-                    </NavLink>
+                  {
+                      NavList.map((item, idx) => {
+                          return <NavLink to={item.route} key={idx}>{item.title}</NavLink>
+                      })
+                  }
                 </NavMenu>
             </Container>
         </>
