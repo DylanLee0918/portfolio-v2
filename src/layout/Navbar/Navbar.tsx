@@ -5,10 +5,10 @@ import styled from 'styled-components';
 
 const Container = styled.div<{ changeBG?: boolean }>`
     background: ${({changeBG}) => changeBG ? '#7562E0' : 'transparent'};
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem calc((100vw - 1000px) / 6);
+    padding: 0.5rem calc((100vw - 1000px) / 4);
     z-index: 10;
     position: sticky;
     top: 0;
@@ -28,7 +28,7 @@ const NavLink = styled(Link)<{ changeBG?: boolean }>`
     color: ${({changeBG}) => changeBG ? '#FFF' : '#373737'};
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-family: 'OpenSans-Semibold', 'sans-serif';
     text-decoration: none;
     padding: 0 2rem;
@@ -41,10 +41,10 @@ const NavLink = styled(Link)<{ changeBG?: boolean }>`
     }
 
     @media screen and (max-width: 768px) {
-        color: ${({changeBG}) => changeBG ? '#FFF' : '#000000'};
+        color: ${({changeBG}) => changeBG ? '#FFF' : '#FFF'};
 
         &:hover {
-            color: ${({changeBG}) => changeBG ? '#FFF' : '#000000'};
+            color: ${({changeBG}) => changeBG ? '#FFF' : '#FFF'};
             transition: all 0.3s ease-in;
         }
     }
@@ -127,7 +127,7 @@ const Navbar = () => {
 
     const changeBackgroundColor = () => {
       console.log(window.scrollY)
-      if (window.scrollY >= 80) {
+      if (window.scrollY >= 60) {
           setNavbar(true);
           setLogo(true);
       } else if (window.scrollY >= 40){
